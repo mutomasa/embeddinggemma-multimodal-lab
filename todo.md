@@ -11,13 +11,13 @@
 - [x] pytest / ruff と GitHub Actions CI
 
 ## Phase 1 — MVP（`feature/phase1-mvp`）
-- [ ] サンプル文書セット（日英）を作成
-- [ ] CSV / TXT 文書の取り込み
-- [ ] コサイン類似度 Top-K（NumPy）
-- [ ] 128 / 256 / 512 / 768 次元切り替え（切り詰め → 再正規化）
-- [ ] 埋め込みキャッシュ（キー: モデルID・revision・次元・プロンプト・内容ハッシュ）
-- [ ] Streamlit 検索画面（Top-K・スコア・エンコード/検索時間）
-- [ ] `st.cache_resource` でモデル保持、再起動後のキャッシュ再利用
+- [x] サンプル文書セット（日英）を作成
+- [x] CSV / TXT 文書の取り込み
+- [x] コサイン類似度 Top-K（NumPy）
+- [x] 128 / 256 / 512 / 768 次元切り替え（切り詰め → 再正規化）
+- [x] 埋め込みキャッシュ（キー: モデルID・revision・次元・プロンプト・内容ハッシュ）
+- [x] Streamlit 検索画面（Top-K・スコア・エンコード/検索時間）
+- [x] `st.cache_resource` でモデル保持、再起動後のキャッシュ再利用
 
 ## Phase 2 — Multimodal（`feature/phase2-multimodal`）
 - [ ] ネイティブ画像・動画入力 API のスモークテスト

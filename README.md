@@ -10,7 +10,25 @@ Matryoshka 次元（128 / 256 / 512 / 768）ごとの品質・性能差を確認
 ```bash
 uv sync
 uv run python scripts/smoke_text.py   # Phase 0: 5件の文書で日英検索のスモークテスト
+uv run streamlit run app.py           # デモアプリ（http://localhost:8501）
 ```
+
+GPU が他のプロセスで埋まっている場合は `EGLAB_DEVICE=cpu uv run streamlit run app.py` で CPU 実行できます。
+
+## 画面
+
+| ページ | 内容 |
+|---|---|
+| Search | 日英クエリの Top-K 検索、128 / 256 / 512 / 768 次元切り替え、ラベル絞り込み、エンコード・検索・インデックス構築時間、キャッシュ hit/miss |
+
+データセットはサイドバーで「サンプル文書（日英 41件、10カテゴリ）」か CSV / TXT のアップロードを選びます。
+CSV は `text`（または `content` / `body`）列が必須で、任意で `doc_id` / `title` / `category` を使います。
+
+## 埋め込みキャッシュ
+
+- `.cache/embeddings/<namespace>/<content-hash>.npy` に保存（Git 管理外）
+- namespace = モデル ID・revision・次元・役割（query / document）・前処理条件のハッシュ
+- 768 次元で 1 回だけエンコードし、128 / 256 / 512 / 768 の全次元分を保存するため、次元切り替えで再エンコードは発生しません
 
 ## テスト
 
