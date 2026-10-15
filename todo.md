@@ -34,10 +34,10 @@
 - [x] 次元別の近傍変化・順位変動分析
 
 ## Phase 4 — Evaluation（`feature/phase4-evaluation`）
-- [ ] 正解ラベル付き評価セット（JSONL）
-- [ ] Recall@K / MRR / nDCG@K / P@K の実装とユニットテスト
-- [ ] ウォームアップ後の複数回測定（p50 / p95）、エンコード・インデックス構築・検索を分離
-- [ ] 実行環境（モデル revision・dtype・ハードウェア・次元・バッチサイズ）の記録
-- [ ] 4次元を同条件で再実行し CSV / JSON 出力
-- [ ] 誤検索ケースの例示
-- [ ] `docs/evaluation_protocol.md`, `docs/architecture.md`, README 整備
+- [x] 正解ラベル付き評価セット（JSONL）
+- [x] Recall@K / MRR / nDCG@K / P@K の実装とユニットテスト
+- [x] ウォームアップ後の複数回測定（p50 / p95）、エンコード・インデックス構築・検索を分離
+- [x] 実行環境（モデル revision・dtype・ハードウェア・次元・バッチサイズ）の記録
+- [x] 4次元を同条件で再実行し CSV / JSON 出力
+- [x] 誤検索ケースの例示
+- [x] `docs/evaluation_protocol.md`, `docs/architecture.md`, README 整備

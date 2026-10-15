@@ -1,0 +1,14 @@
+{"query_id": "i01", "query": "a red apple", "relevant": {"img_apple": 2}}
+{"query_id": "i02", "query": "夜の空と月", "relevant": {"img_night": 2}}
+{"query_id": "i03", "query": "車", "relevant": {"img_car": 2}}
+{"query_id": "i04", "query": "雪だるま", "relevant": {"img_snowman": 2}}
+{"query_id": "i05", "query": "a house with a roof", "relevant": {"img_house": 2}}
+{"query_id": "i06", "query": "a tree", "relevant": {"img_tree": 2}}
+{"query_id": "i07", "query": "海に沈む夕日", "relevant": {"img_sunset": 2}}
+{"query_id": "i08", "query": "信号機", "relevant": {"img_traffic_light": 2}}
+{"query_id": "i09", "query": "yellow fruit", "relevant": {"img_banana": 2, "img_apple": 1}}
+{"query_id": "i10", "query": "robot gripper holding a block", "relevant": {"img_grip_hold": 2, "img_grip_drop": 1}}
+{"query_id": "i11", "query": "a happy face", "relevant": {"img_smiley": 2}}
+{"query_id": "i12", "query": "checkerboard pattern", "relevant": {"img_checker": 2}}
+{"query_id": "i13", "query": "simple geometric shapes", "relevant": {"img_red_circle": 2, "img_blue_square": 2, "img_green_triangle": 2, "img_yellow_star": 2}}
+{"query_id": "i14", "query": "a block that fell on the floor", "relevant": {"img_grip_drop": 2}}

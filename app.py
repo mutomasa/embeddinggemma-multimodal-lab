@@ -17,6 +17,7 @@ st.markdown(
 | **Search** | テキストクエリによる Top-K 意味検索、次元切り替え、検索時間 |
 | **Multimodal Search** | テキスト → 画像、画像 → 画像、テキスト → 動画（タイムスタンプ付き再生） |
 | **Embedding Analysis** | UMAP 2D、類似度行列、次元別の近傍安定性・順位変動 |
+| **Evaluation** | Recall@K / MRR / nDCG@K / P@K、p50/p95 レイテンシ、保存量、CSV / JSON |
 
 - 埋め込みは `.cache/embeddings/` に保存され、再起動後も再利用されます。
 - スコアはコサイン類似度で、**関連度の指標であり正解確率ではありません。**
