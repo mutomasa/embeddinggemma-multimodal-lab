@@ -3,12 +3,12 @@
 `docs/development_policy.md` の Phase 0〜4 を実装する。各 Phase は feature ブランチ → PR で取り込む。
 
 ## Phase 0 — Feasibility（`feature/phase0-feasibility`）
-- [ ] `uv` プロジェクトと `src/` 構成を作成
-- [ ] モデルカード推奨コードでテキストのスモークテスト
-- [ ] CPU / CUDA 判定と dtype 選択（float16 禁止、bf16 / fp32）
-- [ ] クエリ・文書のエンコード API を統一（`SearchQuery` / `Document` プロンプト）
-- [ ] 5件の文書に対する日本語・英語検索がローカルで実行できる
-- [ ] pytest / ruff と GitHub Actions CI
+- [x] `uv` プロジェクトと `src/` 構成を作成
+- [x] モデルカード推奨コードでテキストのスモークテスト
+- [x] CPU / CUDA 判定と dtype 選択（float16 禁止、bf16 / fp32）
+- [x] クエリ・文書のエンコード API を統一（`SearchQuery` / `Document` プロンプト）
+- [x] 5件の文書に対する日本語・英語検索がローカルで実行できる
+- [x] pytest / ruff と GitHub Actions CI
 
 ## Phase 1 — MVP（`feature/phase1-mvp`）
 - [ ] サンプル文書セット（日英）を作成
