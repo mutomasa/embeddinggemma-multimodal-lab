@@ -11,12 +11,15 @@ dependencies = [
     "opencv-python-headless>=5.0.0.93",
     "pandas>=3.0.6",
     "pillow>=12.3.0",
+    "plotly>=7.1.0",
+    "scikit-learn>=1.9.1",
     "sentence-transformers>=6.1.0",
     "streamlit>=1.66.0",
     "torch>=2.14.1",
     "torchcodec>=0.16.0",
     "torchvision>=0.29.1",
     "transformers>=5.18",
+    "umap-learn>=0.5.12",
 ]
 
 [build-system]
