@@ -41,3 +41,16 @@
 - [x] 4次元を同条件で再実行し CSV / JSON 出力
 - [x] 誤検索ケースの例示
 - [x] `docs/evaluation_protocol.md`, `docs/architecture.md`, README 整備
+
+## 既知の問題（GitHub Issues）
+- [ ] #6 合成グリッパ動画の検索がチャンスレベル
+- [ ] #7 サンプル評価セットが易しすぎて次元差が出ない
+- [ ] #8 「滑り」クエリで「落下」文書が 1 位になる
+- [ ] #9 類似度に言語による上乗せがある
+- [ ] #10 依存関係の注意点（pillow / torchvision / torchcodec / FFmpeg）
+- [ ] #11 CUDA OOM 時に CPU へ自動フォールバックしない
+- [ ] #12 Search 画面のエンコード時間表示がキャッシュの影響を受ける
+- [ ] #13 埋め込みキャッシュのスケーラビリティと容量管理
+
+## 次のフェーズ
+- [ ] Phase 5 — Research Demo（実ロボット把持動画、人手ラベルとの照合）
