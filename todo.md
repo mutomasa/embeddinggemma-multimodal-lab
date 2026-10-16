@@ -52,5 +52,14 @@
 - [ ] #12 Search 画面のエンコード時間表示がキャッシュの影響を受ける
 - [ ] #13 埋め込みキャッシュのスケーラビリティと容量管理
 
-## 次のフェーズ
-- [ ] Phase 5 — Research Demo（実ロボット把持動画、人手ラベルとの照合）
+## Phase 5 — Research Demo（`feature/phase5-research-demo`）
+- [x] 人手ラベル形式（動画 × 時間区間 × イベント）の読み込みと時刻 → イベント照会
+- [x] イベントクエリ（graded events）とアノテーションからのフレーム / 動画単位の正解導出
+- [x] 検索結果フレームと人手ラベルの照合（一致率@K、✅/❌、タイムライン表示）
+- [x] 全クエリの 1 位フレーム × 人手ラベルの混同行列
+- [x] 4 次元の定量評価（既存評価エンジンを再利用）と `scripts/run_research_eval.py`
+- [x] 合成グリッパ動画用の区間ラベル・クエリ（`datasets/sample/research/`）
+- [x] Streamlit「Research Demo」ページ、README / architecture 更新
+- [ ] #14 実ロボット把持動画と人手ラベル（未同梱）
+- [ ] #15 合成動画では 1 位フレームが「落下」区間に偏る
+- [ ] #16 `corpus_digest` がパスを含まない
