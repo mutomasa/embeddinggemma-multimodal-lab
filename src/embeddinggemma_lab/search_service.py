@@ -65,3 +65,14 @@ class SearchService:
         with stopwatch() as search:
             results = self.search_vector(vector, dim, k, labels)
         return SearchResult(query, dim, results, encode.elapsed_ms, search.elapsed_ms)
+
+    def search_item(self, query: Item, dim: int, k: int = 5) -> SearchResult:
+        """Query by example (e.g. image -> image); the query file itself is excluded."""
+        index = self.index(dim)
+        with stopwatch() as encode:
+            vector = self.embedder.embed_items([query], dim)[0]
+        mask = np.array([not (query.path and x.path == query.path) for x in self.items])
+        with stopwatch() as search:
+            hits = index.search(vector, k, mask=mask)
+        results = [RankedItem(hit=h, item=self.items[h.index]) for h in hits]
+        return SearchResult(query.item_id, dim, results, encode.elapsed_ms, search.elapsed_ms)
