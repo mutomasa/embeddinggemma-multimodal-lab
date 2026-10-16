@@ -67,9 +67,13 @@ def _frames(video_paths: tuple[str, ...], interval_s: float) -> list[Item]:
     return all_frame_items(videos, FrameSampling(interval_s), FRAMES_DIR)
 
 
+def video_frames(interval_s: float) -> list[Item]:
+    return _frames(tuple(v.path for v in video_corpus() if v.path), interval_s)
+
+
 def video_search_service(interval_s: float) -> VideoSearchService:
     videos = video_corpus()
-    frames = _frames(tuple(v.path for v in videos if v.path), interval_s)
+    frames = video_frames(interval_s)
     services = st.session_state.setdefault("_video_services", {})
     key = (tuple(v.item_id for v in videos), interval_s)
     if key not in services:

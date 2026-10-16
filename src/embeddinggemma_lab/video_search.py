@@ -88,14 +88,23 @@ class VideoSearchService:
         self.videos = {v.item_id: v for v in videos}
         self.frames = list(frames)
         self.groups = group_frames(self.frames)
+        self._frame_vectors: dict[int, np.ndarray] = {}
+        self._native_vectors: dict[int, dict[str, np.ndarray]] = {}
 
     def frame_vectors(self, dim: int) -> np.ndarray:
-        return self.embedder.embed_items(self.frames, dim)
+        """Frame embeddings at ``dim``, loaded once per dim (like an index)."""
+        if dim not in self._frame_vectors:
+            self._frame_vectors[dim] = self.embedder.embed_items(self.frames, dim)
+        return self._frame_vectors[dim]
 
     def native_vectors(self, dim: int) -> dict[str, np.ndarray]:
-        videos = list(self.videos.values())
-        vectors = self.embedder.embed_items(videos, dim)
-        return {v.item_id: vec for v, vec in zip(videos, vectors, strict=True)}
+        if dim not in self._native_vectors:
+            videos = list(self.videos.values())
+            vectors = self.embedder.embed_items(videos, dim)
+            self._native_vectors[dim] = {
+                v.item_id: vec for v, vec in zip(videos, vectors, strict=True)
+            }
+        return self._native_vectors[dim]
 
     def search_vector(self, query: np.ndarray, dim: int, k: int, method: str) -> list[VideoHit]:
         frame_vectors = self.frame_vectors(dim)

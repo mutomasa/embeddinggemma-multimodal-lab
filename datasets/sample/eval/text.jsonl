@@ -1,0 +1,20 @@
+{"query_id": "t01", "query": "ロボットが物体を落とす", "relevant": {"d01": 2, "d02": 2, "d03": 2, "d04": 2, "r03": 1}}
+{"query_id": "t02", "query": "The robot dropped the object", "relevant": {"d01": 2, "d02": 2, "d03": 2, "d04": 2, "r03": 1}}
+{"query_id": "t03", "query": "把持中に物が滑る", "relevant": {"s01": 2, "s02": 2, "s03": 2, "s04": 2, "r01": 1, "r04": 1}}
+{"query_id": "t04", "query": "object slipping from the gripper", "relevant": {"s01": 2, "s02": 2, "s03": 2, "s04": 2, "r01": 1, "r02": 1, "r04": 1}}
+{"query_id": "t05", "query": "ロボットがしっかり物を掴んで運んだ", "relevant": {"g01": 2, "g02": 2, "g03": 2, "g04": 2, "g05": 2}}
+{"query_id": "t06", "query": "successful robotic pick and place", "relevant": {"g01": 2, "g02": 2, "g03": 2, "g04": 2, "g05": 2}}
+{"query_id": "t07", "query": "滑りを検知して持ち直す", "relevant": {"r01": 2, "r02": 2, "r03": 2, "r04": 2, "s04": 1}}
+{"query_id": "t08", "query": "recover the grasp after a slip", "relevant": {"r01": 2, "r02": 2, "r03": 2, "r04": 2, "s04": 1}}
+{"query_id": "t09", "query": "明日は雨が降りますか", "relevant": {"w01": 2, "w02": 2, "w03": 1}}
+{"query_id": "t10", "query": "extreme hot weather", "relevant": {"w04": 2, "h03": 1}}
+{"query_id": "t11", "query": "カレーのレシピ", "relevant": {"c01": 2, "c02": 1, "c03": 1, "c04": 1}}
+{"query_id": "t12", "query": "how to bake bread", "relevant": {"c04": 2}}
+{"query_id": "t13", "query": "サッカーの試合結果", "relevant": {"p01": 2, "p02": 1, "p03": 1, "p04": 1}}
+{"query_id": "t14", "query": "marathon world record", "relevant": {"p02": 2}}
+{"query_id": "t15", "query": "オーロラはなぜ発生するのか", "relevant": {"a01": 2, "a02": 2}}
+{"query_id": "t16", "query": "exploring Mars", "relevant": {"a04": 2}}
+{"query_id": "t17", "query": "Pythonでエラー処理", "relevant": {"k01": 2}}
+{"query_id": "t18", "query": "sorting algorithm", "relevant": {"k02": 2}}
+{"query_id": "t19", "query": "よく眠るためのコツ", "relevant": {"h01": 2}}
+{"query_id": "t20", "query": "preventing heat stroke", "relevant": {"h03": 2, "w04": 1}}

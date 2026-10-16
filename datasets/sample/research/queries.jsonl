@@ -1,0 +1,8 @@
+{"query_id": "r01", "query": "the robot successfully carries the block without losing it", "events": {"success": 2, "carry": 1}}
+{"query_id": "r02", "query": "ロボットがブロックを落とさずに運んでいる", "events": {"success": 2, "carry": 1}}
+{"query_id": "r03", "query": "the block is slipping out of the robot gripper", "events": {"slip": 2}}
+{"query_id": "r04", "query": "グリッパの中でブロックが滑ってずれている", "events": {"slip": 2}}
+{"query_id": "r05", "query": "the robot drops the block and it falls to the floor", "events": {"drop": 2}}
+{"query_id": "r06", "query": "ブロックが落下して床に落ちている", "events": {"drop": 2}}
+{"query_id": "r07", "query": "the gripper regrasps the block after it slipped", "events": {"regrasp": 2, "slip": 1}}
+{"query_id": "r08", "query": "滑ったブロックをグリッパが持ち直す", "events": {"regrasp": 2, "slip": 1}}

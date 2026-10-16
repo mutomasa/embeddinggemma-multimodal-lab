@@ -69,3 +69,18 @@ def test_service_ranks_videos_with_best_timestamp(method, top):
     assert result.hits[0].video.item_id == top
     stamps = {h.video.item_id: h.best_timestamp_s for h in result.hits}
     assert stamps == {"a": 1.0, "b": 0.0}
+
+
+def test_service_loads_vectors_once_per_dim():
+    class CountingEmbedder(StubEmbedder):
+        calls = 0
+
+        def embed_items(self, items, dim):
+            CountingEmbedder.calls += 1
+            return super().embed_items(items, dim)
+
+    videos = [Item("a", modality="video"), Item("b", modality="video")]
+    service = VideoSearchService(CountingEmbedder(), videos, FRAMES)
+    for _ in range(3):
+        service.search("q", dim=128, k=2, method=NATIVE)
+    assert CountingEmbedder.calls == 2  # frames + native, once each
