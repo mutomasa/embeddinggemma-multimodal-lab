@@ -21,3 +21,4 @@ datasets/sample/videos/
 .DS_Store
 .vscode/
 .idea/
+.playwright-mcp/

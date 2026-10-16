@@ -1,0 +1,8 @@
+{"query_id": "v01", "query": "the robot drops the block and it falls to the floor", "relevant": {"vid_drop_red": 2, "vid_drop_blue": 2}}
+{"query_id": "v02", "query": "ロボットがブロックを落とす", "relevant": {"vid_drop_red": 2, "vid_drop_blue": 2}}
+{"query_id": "v03", "query": "the block slips inside the gripper", "relevant": {"vid_slip_red": 2, "vid_slip_blue": 2, "vid_recovery_red": 1, "vid_recovery_blue": 1}}
+{"query_id": "v04", "query": "把持中にブロックが滑る", "relevant": {"vid_slip_red": 2, "vid_slip_blue": 2, "vid_recovery_red": 1, "vid_recovery_blue": 1}}
+{"query_id": "v05", "query": "the robot successfully picks up and carries the block", "relevant": {"vid_success_red": 2, "vid_success_blue": 2}}
+{"query_id": "v06", "query": "ロボットがブロックを掴んで運ぶ", "relevant": {"vid_success_red": 2, "vid_success_blue": 2}}
+{"query_id": "v07", "query": "the robot regrasps the block after it slips", "relevant": {"vid_recovery_red": 2, "vid_recovery_blue": 2, "vid_slip_red": 1, "vid_slip_blue": 1}}
+{"query_id": "v08", "query": "滑ったブロックを持ち直す", "relevant": {"vid_recovery_red": 2, "vid_recovery_blue": 2, "vid_slip_red": 1, "vid_slip_blue": 1}}

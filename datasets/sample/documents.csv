@@ -1,0 +1,42 @@
+doc_id,title,text,category,lang
+g01,把持成功,ロボットハンドが赤いブロックをしっかり掴み、そのまま箱の中へ運んだ。,grasp_success,ja
+g02,Grasp success,The two-finger gripper closed on the mug handle and lifted it without any wobble.,grasp_success,en
+g03,ピッキング完了,吸着ハンドが段ボール箱を持ち上げ、コンベア上に正確に置いた。,grasp_success,ja
+g04,Stable pick,The robot picked up the screwdriver on the first attempt and placed it in the tray.,grasp_success,en
+g05,把持安定,アームは卵を割らずに優しく掴み、トレーへ移動させることができた。,grasp_success,ja
+s01,滑り発生,持ち上げ途中でペットボトルが指の間を少しずつ滑り始めた。,grasp_slip,ja
+s02,Slip detected,"While lifting, the wet glass slowly slid along the gripper pads.",grasp_slip,en
+s03,すべり,把持力が弱く、金属部品がハンドの中で回転しながらずれていった。,grasp_slip,ja
+s04,Partial slip,The tactile sensor reported shear as the plastic bottle slipped a few millimeters.,grasp_slip,en
+d01,落下,ロボットアームが把持していた物体を途中で床に落としてしまった。,grasp_drop,ja
+d02,Object dropped,The gripper lost hold of the box and it fell onto the floor.,grasp_drop,en
+d03,取り落とし,搬送中にハンドが開いてしまい、部品が作業台の上に落下した。,grasp_drop,ja
+d04,Drop during transport,Halfway through the motion the ball escaped the fingers and bounced away.,grasp_drop,en
+r01,再把持,滑りを検知したロボットは把持力を上げて物体を持ち直した。,grasp_recovery,ja
+r02,Regrasp,"After the cup tilted, the controller tightened the grip and recovered the object.",grasp_recovery,en
+r03,リトライ成功,一度落とした部品をロボットが拾い直し、二回目で正しく配置した。,grasp_recovery,ja
+r04,Recovery,The arm detected the slip early and adjusted its fingers to stabilize the grasp.,grasp_recovery,en
+w01,天気予報,明日の東京は晴れのち曇り、夕方から雨が降る可能性があります。,weather,ja
+w02,Weather,A cold front will bring heavy rain and strong winds to the coast tonight.,weather,en
+w03,台風,大型の台風が週末に沖縄へ接近し、交通機関に影響が出る見込みです。,weather,ja
+w04,Heat wave,Temperatures are expected to exceed 38 degrees during this week's heat wave.,weather,en
+c01,カレーの作り方,玉ねぎをあめ色になるまで炒め、肉と野菜を加えてルウで煮込む。,cooking,ja
+c02,Pasta recipe,Boil the spaghetti in salted water and toss it with garlic and olive oil.,cooking,en
+c03,味噌汁,だしを取り、豆腐とわかめを入れて最後に味噌を溶かす。,cooking,ja
+c04,Baking bread,Knead the dough for ten minutes and let it rise until doubled in size.,cooking,en
+p01,サッカー,後半ロスタイムにフォワードが決勝ゴールを決め、チームが優勝した。,sports,ja
+p02,Marathon,The runner broke the course record by finishing the marathon in two hours.,sports,en
+p03,野球,エースが完封勝利を挙げ、チームは首位に浮上した。,sports,ja
+p04,Tennis,She won the final set in a tiebreak to claim her first grand slam title.,sports,en
+a01,オーロラ,オーロラは太陽風の荷電粒子が地球の大気と衝突して発光する現象である。,space,ja
+a02,Northern lights,The northern lights are caused by charged particles from the sun hitting the atmosphere.,space,en
+a03,ブラックホール,ブラックホールは重力が強すぎて光さえも脱出できない天体である。,space,ja
+a04,Mars rover,The rover drilled into Martian rock to search for signs of ancient water.,space,en
+k01,Pythonの例外,try-except 構文を使うと、ファイルが存在しない場合のエラーを処理できる。,programming,ja
+k02,Sorting,Quicksort partitions the array around a pivot and recursively sorts each half.,programming,en
+k03,Git ブランチ,機能ごとにブランチを切り、プルリクエストでレビューしてからマージする。,programming,ja
+k04,REST API,The endpoint returns a JSON list of users and supports pagination via query parameters.,programming,en
+h01,睡眠,質の良い睡眠をとるには、就寝前のスマートフォン使用を控えるとよい。,health,ja
+h02,Exercise,Thirty minutes of brisk walking a day lowers the risk of heart disease.,health,en
+h03,水分補給,夏場は喉が渇く前にこまめに水分を補給することが熱中症予防になる。,health,ja
+h04,Nutrition,"Leafy greens are rich in vitamin K, folate and dietary fiber.",health,en
