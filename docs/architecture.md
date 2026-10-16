@@ -2,7 +2,7 @@
 
 ```mermaid
 flowchart TD
-    UI["Streamlit pages<br/>Search / Multimodal / Analysis / Evaluation"] --> UIH["ui/ (resources, corpus, media)"]
+    UI["Streamlit pages<br/>Search / Multimodal / Analysis / Evaluation / Research"] --> UIH["ui/ (resources, corpus, media)"]
     UIH --> SS[SearchService]
     UIH --> VS[VideoSearchService]
     UIH --> EV[evaluation.run_evaluation]
@@ -19,6 +19,9 @@ flowchart TD
     UIH --> ING
     EV --> MET[metrics]
     EV --> REP["reports/ CSV + JSON"]
+    UIH --> RE["research_eval<br/>(annotations → qrels)"]
+    RE --> EV
+    RE --> LM["label_matching<br/>(hit × human label)"]
 ```
 
 ## モジュール
@@ -44,6 +47,12 @@ flowchart TD
 | `evaluation.py` | 評価実行・誤検索抽出・CSV / JSON 出力 |
 | `eval_sets.py` | 組み込み評価セット（text / image / video） |
 | `environment.py` | 実行環境の記録 |
+| `annotations.py` | 人手ラベル（動画の時間区間 × イベント）の読み込みと時刻 → イベント照会 |
+| `event_queries.py` | イベントクエリ（`events: {event: grade}`）と、アノテーションからのフレーム / 動画単位の正解導出 |
+| `label_matching.py` | 検索結果フレームと人手ラベルの照合、一致率、混同表 |
+| `research_corpus.py` | 研究デモ用データセット（動画・フレーム・ラベル・クエリ）の読み込み |
+| `research_eval.py` | フレーム / 動画粒度の評価セット構築（`run_evaluation` を再利用）、1 位フレームの混同表 |
+| `research_plots.py` | ラベル区間タイムライン、混同行列ヒートマップ |
 | `ui/` | Streamlit 依存のヘルパー（コアモジュールは Streamlit に依存しない） |
 
 ## 設計上の判断
@@ -53,3 +62,5 @@ flowchart TD
 - **キャッシュキーの分離**：namespace にモデル ID・revision・次元・役割（query / document）・前処理条件、
   ファイル名に内容ハッシュ（メディアはファイルバイト列）。revision が変われば自動的に別キャッシュになる。
 - **モデル依存を adapter に閉じ込める**：テストは決定的な `FakeEncoder` で行い、実モデルのテストは `-m model` に分離。
+- **正解は人手ラベルから導出する**：研究デモでは item ごとの qrels を手書きせず、時間区間アノテーションから
+  フレーム単位（timestamp が区間内 ± 許容誤差）と動画単位（イベントを含む）の正解を生成し、既存の評価エンジンに渡す。

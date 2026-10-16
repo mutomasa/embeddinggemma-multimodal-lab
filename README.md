@@ -22,6 +22,7 @@ GPU が他のプロセスで埋まっている場合は `EGLAB_DEVICE=cpu uv run
 | Search | 日英クエリの Top-K 検索、128 / 256 / 512 / 768 次元切り替え、ラベル絞り込み、エンコード・検索・インデックス構築時間、キャッシュ hit/miss |
 | Multimodal Search | テキスト → 画像、画像 → 画像、テキスト → 動画（フレーム最大スコア / フレーム平均ベクトル / ネイティブ動画入力）、ベストフレームのタイムスタンプから再生 |
 | Embedding Analysis | UMAP 2D（ラベル / モダリティ別の色分け、クリック・投げ縄で詳細表示）、ラベル順の類似度行列、次元別の k 近傍一致率、クエリ別の順位変動（top-k overlap, Kendall τ, バンプチャート） |
+| Research Demo | 把持の成功 / 滑り / 落下 / 持ち直しのクエリで動画フレームを検索し、人手ラベル（時間区間）と照合（一致率、タイムライン、1 位フレームの混同行列、4 次元の定量評価） |
 | Evaluation | 正解ラベル付き評価セットで 4 次元を同条件比較（Recall@K / MRR / nDCG@K / P@K、p50 / p95 レイテンシ、保存量）、誤検索ケース、CSV / JSON 出力 |
 
 データセットはサイドバーで「サンプル文書（日英 41件、10カテゴリ）」か CSV / TXT のアップロードを選びます。
@@ -49,6 +50,31 @@ uv run python scripts/run_evaluation.py --task video --video-method max_frame   
 
 クエリエンコードは p50 約 19 ms（次元に依存しない）、検索は全次元で 0.03 ms 程度です。
 サンプルは小規模なため次元間の差は誤差の範囲で、合成動画は識別が難しく P@1 がチャンスレベルです（Issue 参照）。
+
+## Research Demo（Phase 5）
+
+```bash
+uv run python scripts/run_research_eval.py --granularity frame              # フレーム単位で照合
+uv run python scripts/run_research_eval.py --granularity video --video-method max_frame
+uv run python scripts/run_research_eval.py --root datasets/robot_grasps     # 独自データ
+```
+
+独自データは次の構成で置きます（Git 管理外の場所を推奨）。
+
+```text
+<root>/
+├── videos/            # *.mp4（任意で metadata.csv: media_id, file, caption, label）
+├── annotations.csv    # video_id, start_s, end_s, event[, annotator]  ← 人手ラベル（区間は重複可）
+└── queries.jsonl      # {"query_id", "query", "events": {"slip": 2, "carry": 1}}
+```
+
+- フレーム単位：フレームの timestamp がイベント区間（± 許容誤差）に入れば正解
+- 動画単位：動画のどこかにイベントがあれば正解（グレードはイベントの最大値）
+- 出力は通常の評価レポートに加え `top1_confusion.csv`（クエリのイベント × 1 位フレームの人手ラベル）
+
+同梱サンプル `datasets/sample/research/` は合成グリッパ動画の生成タイムラインに沿って付けた区間ラベルで、
+実ロボット動画ではありません。合成動画では 1 位フレームがほぼ全クエリで「落下」区間に偏り（P@1 = 0.125）、
+EmbeddingGemma 2 が合成アニメの把持状態を区別できないことが人手ラベルとの照合で確認できます（Issue 参照）。
 
 ## マルチモーダルのサンプルデータ
 
